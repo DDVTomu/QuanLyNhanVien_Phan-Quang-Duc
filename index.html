@@ -214,7 +214,7 @@
 
           <!-- Modal body -->
           <div class="modal-body">
-            <form role="form">
+            <form role="form" id="formNV">
               <div class="form-group">
                 <div class="input-group">
                   <div class="input-group-prepend">
@@ -364,10 +364,20 @@
 
           <!-- Modal footer -->
           <div class="modal-footer" id="modal-footer">
-            <button id="btnThemNV" type="button" class="btn btn-success">
+            <button
+              id="btnThemNV"
+              type="button"
+              class="btn btn-success"
+              data-dismiss="modal"
+            >
               Thêm người dùng
             </button>
-            <button id="btnCapNhat" type="button" class="btn btn-success">
+            <button
+              id="btnCapNhat"
+              type="button"
+              class="btn btn-success"
+              data-dismiss="modal"
+            >
               Cập nhật
             </button>
             <button
@@ -394,7 +404,7 @@
     <script src="./js/jquery-ui.js"></script>
     <script src="./js/datepicker.js"></script>
     <script src="./models/DSNV.js"></script>
-	<script src="./models/Validation.js"></script>
+    <script src="./models/Validation.js"></script>
     <script src="./models/NhanVien.js"></script>
     <script src="./controller/main.js"></script>
     <!-- Wow -->

@@ -32,6 +32,16 @@ function DSNV() {
     }
   };
 
+  this.layThongTinNV = function (taiKhoan) {
+    var index = this.timViTri(taiKhoan);
+
+    if (index !== -1) {
+      return this.arr[index];
+    }
+
+    return null;
+  };
+
   this.capNhatNV = function (nv) {
     console.log(nv);
     var index = this.timViTri(nv.taiKhoan);

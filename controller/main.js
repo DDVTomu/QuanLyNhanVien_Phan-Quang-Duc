@@ -145,6 +145,41 @@ document.getElementById("btnCapNhat").onclick = function () {
   setLocalStorage();
 };
 
+getEle("btnThem").addEventListener("click", function (event) {
+  event.preventDefault();
+
+  //display #btnThemSV
+  getEle("btnThemNV").style.display = "inline-block";
+  //off #btnCapNhatSV
+  getEle("btnCapNhat").style.display = "none";
+
+  //Clear value input
+  getEle("formNV").reset();
+  //disabled #txtMaSV
+  getEle("tknv").disabled = false;
+});
+
+function editNV(taiKhoan) {
+  var nv = dsnv.layThongTinNV(taiKhoan);
+  if (nv) {
+    getEle("tknv").value = nv.taiKhoan;
+    getEle("tknv").disabled = true;
+
+    getEle("name").value = nv.tenNV;
+    getEle("email").value = nv.email;
+    getEle("password").value = nv.matKhau;
+    getEle("datepicker").value = nv.ngayLam;
+    getEle("luongCB").value = nv.luongCB;
+    getEle("chucvu").value = nv.chucVu;
+    getEle("gioLam").value = nv.gioLam;
+
+    //display #btnCapNhatSV
+    getEle("btnCapNhat").style.display = "inline-block";
+    //off #btnThemSV
+    getEle("btnThemNV").style.display = "none";
+  }
+}
+
 function deleteNV(taiKhoan) {
   dsnv.xoaNV(taiKhoan);
   renderTable(dsnv.arr);
@@ -166,6 +201,7 @@ function renderTable(data) {
               <td>${nv.tongLuong}</td>
               <td>${nv.xepLoai}</td>
               <td>
+                  <button class="btn btn-info" onclick="editNV('${nv.taiKhoan}')" data-toggle="modal" data-target="#myModal">Edit</button>
                   <button class="btn btn-danger" onclick="deleteNV('${nv.taiKhoan}')">Delete</button>
               </td>
           </tr>
